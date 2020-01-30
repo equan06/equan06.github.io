@@ -1,14 +1,10 @@
-name: "YOURNAME"                                # CHANGE HERE 
+name: "Elliot Quan"                                # CHANGE HERE 
 output_dir: "."
 navbar:
-  title: "YOURNAME"                             # CHANGE HERE 
+  title: "Home"                             # CHANGE HERE 
   type: inverse
   left:
-    - text: "Home"
-      icon: fa-home
-      href: index.html
-    - text: "london Marathon Analysis"
-      icon: fa-about
+    - text: "London Marathon Analysis"
       href: analysis.html
   right:
     - text: "GitHub"

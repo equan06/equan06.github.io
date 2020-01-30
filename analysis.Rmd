@@ -6,15 +6,16 @@ output:
   html_document:
     df_print: paged
     toc: yes
+    number_sections: TRUE
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
-Note: If you'd like to skip straight to the analysis, skip to Seetion 
+Note: If you'd like to skip straight to the analysis, skip to Section 6.
 
-# 1) Introduction
+# Introduction
 
 The [London Marathon](https://en.wikipedia.org/wiki/London_Marathon) is an annual race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 [world marathon majors](https://en.wikipedia.org/wiki/World_Marathon_Majors). Several marathon world records have been set here, and the course is relatively flat with a sudden downhill after the second mile. This analysis uses the data of 234,613 runners from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon.
 

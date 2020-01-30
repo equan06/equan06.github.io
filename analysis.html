@@ -278,18 +278,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Home
-  </a>
-</li>
-<li>
-  <a href="analysis.html">
-    <span class="fa fa-about"></span>
-     
-    london Marathon Analysis
-  </a>
+  <a href="analysis.html">London Marathon Analysis</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -317,26 +306,26 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction">1) Introduction</a></li>
-<li><a href="#demographics">Demographics</a></li>
-<li><a href="#experience-and-finish-times">Experience and Finish Times</a></li>
-<li><a href="#split-consistency-and-coefficient-of-variation">Split Consistency and Coefficient of Variation</a></li>
-<li><a href="#race-strategy-negative-vs-positive-vs-even-splits">Race Strategy: Negative vs Positive vs Even Splits?</a></li>
-<li><a href="#even-splits-another-way-coefficient-of-variation">Even Splits Another Way: Coefficient of Variation</a></li>
-<li><a href="#elite-split-profiles">Elite Split Profiles</a></li>
-<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#demographics"><span class="toc-section-number">2</span> Demographics</a></li>
+<li><a href="#experience-and-finish-times"><span class="toc-section-number">3</span> Experience and Finish Times</a></li>
+<li><a href="#split-consistency-and-coefficient-of-variation"><span class="toc-section-number">4</span> Split Consistency and Coefficient of Variation</a></li>
+<li><a href="#race-strategy-negative-vs-positive-vs-even-splits"><span class="toc-section-number">5</span> Race Strategy: Negative vs Positive vs Even Splits?</a></li>
+<li><a href="#even-splits-another-way-coefficient-of-variation"><span class="toc-section-number">6</span> Even Splits Another Way: Coefficient of Variation</a></li>
+<li><a href="#elite-split-profiles"><span class="toc-section-number">7</span> Elite Split Profiles</a></li>
+<li><a href="#conclusions"><span class="toc-section-number">8</span> Conclusions</a></li>
 </ul>
 </div>
 
-<p>Note: If you’d like to skip straight to the analysis, skip to Seetion</p>
+<p>Note: If you’d like to skip straight to the analysis, skip to Section 6.</p>
 <div id="introduction" class="section level1">
-<h1>1) Introduction</h1>
+<h1><span class="header-section-number">1</span> Introduction</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/London_Marathon">London Marathon</a> is an annual race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 <a href="https://en.wikipedia.org/wiki/World_Marathon_Majors">world marathon majors</a>. Several marathon world records have been set here, and the course is relatively flat with a sudden downhill after the second mile. This analysis uses the data of 234,613 runners from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon.</p>
 <p>Why did I choose to look at London? As someone who’s never run a marathon before, I was particularly interested in the best approach to pacing a marathon (negative/positive/even). Negative splits mean running faster in the second half, positive splits mean the opposite, and even splits mean running a consistent pace throughout. Common running wisdom and several other people with quantitative backgrounds have looked at this before; the conclusion is even/negative splits are preferable over positive. Jared Ward (6th place at Rio 2016 marathon and BYU stats professor) wrote a master’s thesis on the topic, taking a Bayesian approach to modeling split pacing strategies using quarter splits (split time through the 4 quarters of the race). I read an <a href="https://fellrnr.com/wiki/Negative_Splits">article</a> by Jonathan Savage who looked at a comprehensive set of data from NYC and Chicago, but he only analyzed the half splits (first/second). So I wanted to find a race that had comprehensive split data across the entire race (every 5K) - London was the first one I found, and thankfully it wasn’t terribly difficult to scrape the data.</p>
 <p>Data was collected using python and BS4 and stored in an sqlite database for easy access. The code for that is availible in london.py. Note: you have to reconfigure it every time for each gender/year/elite combination, since the HTML of the results page sometimes changes from year to year.</p>
 </div>
 <div id="demographics" class="section level1">
-<h1>Demographics</h1>
+<h1><span class="header-section-number">2</span> Demographics</h1>
 <p>The 2014-2019 data contains 234,613 finishers. People who DNFed (Did Not Finish) the race were not present in the race results, so they unfortunately have been excluded. Of the finishers, roughly 6,000 of them had missing split data at some point throughout the race, so these runners were included in the demographic analysis but excluded from the pace analysis.</p>
 <p>Here are the finish times of the runners in the top-x% for London 2019.</p>
 <table>
@@ -404,14 +393,14 @@ $(document).ready(function () {
 <p>With respect to age groups, we can see that the the 40-44 year olds are the sweet spot between age and performance. This could be due to having more race experience or just the compounding effect of years of training.</p>
 </div>
 <div id="experience-and-finish-times" class="section level1">
-<h1>Experience and Finish Times</h1>
+<h1><span class="header-section-number">3</span> Experience and Finish Times</h1>
 <p>What about investigating the effect of race experience on finish times? Since we have data spanning multiple years, this allows us to check for repeat runners: runners in 2019 who’ve raced at least once between 2014-2018. Runners were matched if they had the same name, country, and belonged to the same age category or the age category right below to account for aging; for example, (Jane Doe, USA, 40-44) would match to (Jane Doe, USA, 40-44) or (Jane Doe, USA, 18-39), so the matching may not be perfect. Roughly 21% of the 41,000+ 2019 runners fell into this category.</p>
 <p><img src="img/desc/finish_by_age_repeat.png" /></p>
 <p>The effect is clear: repeat runners are consistently faster on average than their non-repeat counterparts across all age groups except for the 70+ category. It’s fairly surprising to see how consistent the differential is: respectively, repeat men and women were 17 and 21 min faster on average.</p>
 <p>More surprisingly, we can even see that repeat female runners between 60-64 outperformed their non-repeat male counterparts. In fact, they’re almost as fast their repeat male counterparts! This can be attributed to selection bias - since the number of repeat female marathoners aged 60-64 is a relatively small group, you’re likely to be a pretty serious runner: serious enough to contend with the 60-64 male repeat runners.</p>
 </div>
 <div id="split-consistency-and-coefficient-of-variation" class="section level1">
-<h1>Split Consistency and Coefficient of Variation</h1>
+<h1><span class="header-section-number">4</span> Split Consistency and Coefficient of Variation</h1>
 <p>One of the main reasons why I chose to analyze London was the availibility of 5K split data (the time differential between every 5K of the race, from start to 42.2K). Using this, we can immediately calculate the paces of each runner as they progress through the race. I needed some metric to summarize the ‘consistency’ of a runner. A consistent runner should run all of their 5K splits close to their overall average marathon pace.</p>
 <p>One could compute the standard deviation of a runner’s paces, but consider the following two runners in a 3 mile race:</p>
 <table>
@@ -502,7 +491,7 @@ $(document).ready(function () {
 <p>This leads us to the topic of race strategy: it’s clear before doing any substantive analysis that consistency, finish times, and experience are all related. One would expect a consistent runner to finish the fastest; so let’s look at the most consistent runners - the even split runners.</p>
 </div>
 <div id="race-strategy-negative-vs-positive-vs-even-splits" class="section level1">
-<h1>Race Strategy: Negative vs Positive vs Even Splits?</h1>
+<h1><span class="header-section-number">5</span> Race Strategy: Negative vs Positive vs Even Splits?</h1>
 <p>A common point of race discussion is whether you should run the first half of a race slower, faster, or roughly at the same pace of your second half. We call these ‘negative’, ‘positive’, and ‘even’ split strategies. In general, there is no good answer to this - in just about every event from the 800m to the marathon, world records have been set with all 3 strategies. However there is a general consensus that the longer the race, the more beneficial an even or negative split becomes.</p>
 <p>With the marathon distance, this becomes of crucial importance - there’s a phenomenon that many first-time or inexperienced runners face called ‘hitting the wall,’ which is when the body runs out of fuel (glycogen) in the last few miles of the race. ‘For some, it results in being forced to walk; for others, it results in catastrophic shutdown and potential injury. In other words, you might be punished if you positive split and run too fast at the start. On the other hand, a large negative split might be indicative of a lack of effort at the beginning in which a runner leaves ’too much’ in the tank, causing them to finish slower than if they had ran an even split race. If you ask an experienced marathon veteran, chances are they’ll tell you to run even splits.</p>
 <p>Now due to the extreme weather conditions of the 2018 race, I have excluded those results from this analysis (since the weather conditions almost invariably forced a positive split strategy). However, it’s worth noting that when the results were included, it didn’t change the distribution of split types since they were already so heavily skewed. With that in mind, let’s dive in.</p>
@@ -631,7 +620,7 @@ $(document).ready(function () {
 <p>However, it’s not immediately clear which of negative or even splits wins; even splits were only significantly faster for Male/Female 1st quartile. Can we do better?</p>
 </div>
 <div id="even-splits-another-way-coefficient-of-variation" class="section level1">
-<h1>Even Splits Another Way: Coefficient of Variation</h1>
+<h1><span class="header-section-number">6</span> Even Splits Another Way: Coefficient of Variation</h1>
 <p>Remember our consistency metric, coefficient of variation? How does the split difference percentage relate to CoV? Of course, these two metrics differ in what what they’re trying to measure: SDP only cares about your half splits but also takes into account the direction of the split (was it positive or negative?), while CoV cares about all of your 5K splits and is concerned with whether they’re close to the average split (it’s only positive). So one flaw with SDP is that it’s not the best way to measure whether a runner ran even splits - for example, let’s take a 3:00 runner: they could run perfectly equal first/second halves at 90 min each, but suppose their quarter splits were 50/40/50/40 (which would equate to roughly 8:24/5:18 pace).</p>
 <p>It turns out that if you take the all the runners with a CoV in the top 5%, 83% of them are categorized as even split runners. The following graph helps to illustrate the relationship between CoV and SDP.</p>
 <p><img src="img/split/evensdp_scatter.png" /></p>
@@ -643,7 +632,7 @@ $(document).ready(function () {
 <p>In other words, classifying even split runners using CoV instead of the SDP leads to a more meaningful analysis since the CoV metric considers multiple times across the race as opposed to just the first/second half and finish.</p>
 </div>
 <div id="elite-split-profiles" class="section level1">
-<h1>Elite Split Profiles</h1>
+<h1><span class="header-section-number">7</span> Elite Split Profiles</h1>
 <p>If we restrict our analysis to the 10 total finishers (men and women) per year (excluding 2018), 5 ran even splits, 3 ran positive splits, and 2 ran negative splits. The fastest times 3 of the 5 even splits were from Eliud Kipchoge (2016, 2017, 2019), the current men’s marathon world record holder, the current men’s course record holder, and a 4 time London winner.</p>
 <p>Mary Keitany, the current women’s course record holder, current women’s marathon world record holder (women only race), and 3 time London winner, ran a rather large positive split of 3:13 in 2017.</p>
 <p>Brigid Kosgei, the current women’s marathon world record holder (mixed race), ran a significantly large negative split of -4:56 in 2019.</p>
@@ -769,7 +758,7 @@ $(document).ready(function () {
 <p>One final remark on even splits: repeat runners in 2019 were 4% more likely to run even splits than nonrepeat runners, which is to be expected.</p>
 </div>
 <div id="conclusions" class="section level1">
-<h1>Conclusions</h1>
+<h1><span class="header-section-number">8</span> Conclusions</h1>
 <p>Here’s a TL;DR:</p>
 <ul>
 <li>Heat significantly impacts performance</li>
