@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
 ```
 
-If you'd like to skip straight to the analysis, skip to Section 4. If you'd like to view the code, here's the github repository (here)[https://github.com/equan06/london_marathon]. See london.py and the Jupyter Notebooks (used for plot generation).
+If you'd like to skip straight to the analysis, skip to Section 4. If you'd like to view the code, here's the github repository [here](https://github.com/equan06/london_marathon). See london.py for scraping code and the Jupyter Notebooks for plot generation.
 
 # Introduction
 

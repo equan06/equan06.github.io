@@ -317,7 +317,7 @@ $(document).ready(function () {
 </ul>
 </div>
 
-<p>If you’d like to skip straight to the analysis, skip to Section 4. If you’d like to view the code, here’s the github repository (here)[<a href="https://github.com/equan06/london_marathon" class="uri">https://github.com/equan06/london_marathon</a>]. See london.py and the Jupyter Notebooks (used for plot generation).</p>
+<p>If you’d like to skip straight to the analysis, skip to Section 4. If you’d like to view the code, here’s the github repository <a href="https://github.com/equan06/london_marathon">here</a>. See london.py for scraping code and the Jupyter Notebooks for plot generation.</p>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>The <a href="https://en.wikipedia.org/wiki/London_Marathon">London Marathon</a> is an annual race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 <a href="https://en.wikipedia.org/wiki/World_Marathon_Majors">world marathon majors</a>. Several marathon world records have been set here, and the course is relatively flat with a sudden downhill after the second mile. This analysis uses the data of 234,613 runners from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon.</p>
@@ -379,7 +379,7 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>For reference (using US based standards), the <a href="https://www.baa.org/2020-boston-marathon-qualifier-acceptances-announced">Boston Marathon qualifying standards</a> for males/females in the 18-34 age group respectively are 3:00:00 and 3:30:00, which corresponds to roughly the top 10% of 2019 runners. The <a href="https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon/qualifying-standards">Olympic Trials qualifying standards</a> are 2:19:00 and 2:45:00, which corresponds to just over the top 0.1% of men and slightly under the 0.5% of women.</p>
+<p>For reference (using US based standards), the <a href="https://www.baa.org/2020-boston-marathon-qualifier-acceptances-announced">Boston Marathon qualifying standards</a> for males/females in the 18-34 age group respectively are 3:00:00 and 3:30:00, which corresponds to roughly the top 10% of 2019 runners. The <a href="https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon/qualifying-standards">Olympic Trials qualifying standards</a> are 2:19:00 and 2:45:00, which corresponds to just over the top 0.1% of men and slightly under the top 0.5% of women.</p>
 <p>With that in mind, here are some stats:</p>
 <p><img src="img/demog/by_year.png" /></p>
 <p>It’s no surprise that running participation increases annually as running has become quite a popular hobby. Now what happened in 2018? According to marathon officials, 2018 reached record temperatures (23C/73F) - and since it’s no surprise that temperature has a measured <a href="https://www.medscape.com/viewarticle/555022">negative effect</a> on running performance in longer races, we can see how detrimental the weather was for the average finisher.</p>
@@ -483,7 +483,7 @@ $(document).ready(function () {
 <p><img src="img/cov/cov_distr_quartile_M.png" /></p>
 <p><img src="img/cov/cov_distr_quartile_F.png" /></p>
 <p>This tells us that runners who finish faster are more consistent, which comes at no surprise. However, keep in mind that these are just descriptive statistics.</p>
-<p>Now we examine the effect of age on consistency and finish times.</p>
+<p>Now we examine the effect of age on consistency and finish times. I’ve defined a runner as consistent if their CoV was below the median.</p>
 <p><img src="img/cov/cov_by_age_group.png" /></p>
 <p><img src="img/cov/finish_by_age_cov.png" /></p>
 <p>Again, we see that the 40-44 and 45-49 groups are not only the fastest on average, but also the most consistent; on the other hand, the youngest runners are just as inconsistent as the oldest runners!</p>
