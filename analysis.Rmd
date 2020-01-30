@@ -42,7 +42,7 @@ Here are the finish times of the runners in the top-x% for London 2019.
 |50%|04:09:22|04:45:30|
 |75%|04:50:36|05:29:01|
 
-For reference (using US based standards), the [Boston Marathon qualifying standards](https://www.baa.org/2020-boston-marathon-qualifier-acceptances-announced) for males/females in the 18-34 age group respectively are 3:00:00 and 3:30:00, which corresponds to roughly the top 10% of 2019 runners. The [Olympic Trials qualifying standards](https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon/qualifying-standards) are 2:19:00 and 2:45:00, which corresponds to just over the top 0.1% of men and slightly under the 0.5% of women.
+For reference (using US based standards), the [Boston Marathon qualifying standards](https://www.baa.org/2020-boston-marathon-qualifier-acceptances-announced) for males/females in the 18-34 age group respectively are 3:00:00 and 3:30:00, which corresponds to roughly the top 10% of 2019 runners. The [Olympic Trials qualifying standards](https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon/qualifying-standards) are 2:19:00 and 2:45:00, which corresponds to just over the top 0.1% of men and slightly under the top 0.5% of women.
 
 
 
@@ -138,7 +138,7 @@ This tells us that runners who finish faster are more consistent, which comes at
 
 
 
-Now we examine the effect of age on consistency and finish times.
+Now we examine the effect of age on consistency and finish times. I've defined a runner as consistent if their CoV was below the median.
 
 ![](img/cov/cov_by_age_group.png)
 
