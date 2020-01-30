@@ -58,7 +58,7 @@ Here's the gender ratio over time, and the distribution of finish times.
 
 ![](img/demog/finish_distr.png)
 
-Here are the age groups: note that young people were binned in a relatively large category, so naturally there's going to be more variance in the 18-39 group than the 40-44 group due to the sample size differential. 
+Here are the age groups: note that young people were binned in a relatively large category, so naturally it's harder to make specific conclusions about the 18-39 group compared to the 40-44 group.
 
 ![](img/demog/count_by_age.png)
 
