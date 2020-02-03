@@ -29,6 +29,7 @@ To run the game, simply compile and run Main.java.
 # Updates/Issues
 
 This project has not been updated since May 2018. Some TO-DOs:
+
  * restructure the main game engine files
  * general game content development
 
