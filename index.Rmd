@@ -2,3 +2,10 @@
 title: "Welcome!"
 ---
 
+# About Me
+
+I'm a graduating statistics major from UC Berkeley, interested in everything from machine learning to writing SQL queries. On the weekends, I'm either running up mountains or baking pastries - if you want some shortbread cookies, [drop me a line](mailto: equan@berkeley.com). 
+
+# CV
+
+![](img/equan_resume.pdf)

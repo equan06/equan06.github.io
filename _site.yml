@@ -1,7 +1,7 @@
 name: "Elliot Quan"                                # CHANGE HERE 
 output_dir: "."
 navbar:
-  title: "Home"                             # CHANGE HERE 
+  title: "Elliot Quan"                             # CHANGE HERE 
   type: inverse
   left:
     - text: "London Marathon Analysis"
