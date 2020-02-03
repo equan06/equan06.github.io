@@ -6,6 +6,8 @@ navbar:
   left:
     - text: "London Marathon Analysis"
       href: analysis.html
+    - text: "Cave Quest"
+      href: cavequest.html
   right:
     - text: "GitHub"
       icon: fa-github
