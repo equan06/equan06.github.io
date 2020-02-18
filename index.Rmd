@@ -4,8 +4,8 @@ title: "Welcome!"
 
 # About Me
 
-I'm a Bay Area native and a graduating statistics major from UC Berkeley, interested in everything from machine learning to writing SQL queries. In my free time, I'm either lifting weights, running up mountains, or baking pastries. I also once had 2 [Challenger](https://lolchess.gg/profile/na/zyonsis) [accounts](https://lolchess.gg/profile/na/zyonsis2) (top .01%) in a game called [Teamfight Tactics](https://en.wikipedia.org/wiki/Teamfight_Tactics), in case anyone cares.
+I'm a Bay Area native and a graduating statistics major from UC Berkeley, interested in everything from machine learning to writing SQL queries. In my free time, I'm either lifting weights, running up mountains, or baking pastries. I also once had 2 [Challenger](https://lolchess.gg/profile/na/zyonsis/s1) [accounts](https://lolchess.gg/profile/na/zyonsis2/s1) (top .01%) in a game called [Teamfight Tactics](https://en.wikipedia.org/wiki/Teamfight_Tactics), in case anyone cares.
 
-# CV 
+# Resume
 
 [Download](https://github.com/equan06/equan06.github.io/raw/master/img/elliot_quan_resume.pdf)
