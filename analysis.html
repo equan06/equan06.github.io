@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -238,6 +237,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -317,7 +317,8 @@ $(document).ready(function () {
 <li><a href="#even-splits-another-way-coefficient-of-variation"><span class="toc-section-number">6</span> Even Splits Another Way: Coefficient of Variation</a></li>
 <li><a href="#elite-split-profiles"><span class="toc-section-number">7</span> Elite Split Profiles</a></li>
 <li><a href="#conclusions"><span class="toc-section-number">8</span> Conclusions</a></li>
-<li><a href="#references"><span class="toc-section-number">9</span> References</a></li>
+<li><a href="#statistical-tests-used"><span class="toc-section-number">9</span> Statistical Tests Used</a></li>
+<li><a href="#references"><span class="toc-section-number">10</span> References</a></li>
 </ul>
 </div>
 
@@ -336,8 +337,8 @@ $(document).ready(function () {
 <p>As marathon running has become more trendy as of late, running participation and female participation have increased over time (from 37% to 42% female). Now what happened to finish times in 2018? According to officials, 2018 reached record temperatures of 23C/73F - and it’s no surprise that temperature has a measured <a href="https://www.medscape.com/viewarticle/555022">negative effect</a> on running performance in longer races.</p>
 <p>Here’s the distribution of finish times.</p>
 <p><img src="img/demog/finish_distr.png" /></p>
-<p>You can see that there are sharp points of maxima around 3:00 and 4:00 that have a large cluster of runners; this is a result of runners having common goal times.</p>
-<p>Just for reference, here are the finish times of the runners in the top-X percentile for London 2019.</p>
+<p>You can see that there are sharp points of maxima around 3:00 and 4:00 with a large cluster of runners; this is the well known phenomenon of runners clustering around common goal times (typically multiples of 30 min).</p>
+<p>Here are the finish times of the runners in the top-X percentile for London 2019.</p>
 <table>
 <thead>
 <tr class="header">
@@ -395,6 +396,7 @@ $(document).ready(function () {
 <p>If you’re new to the world of marathon running in general, you might think that it’s a young person’s game. However 48% of the 230,000+ participants were 40 or older, so it’s never too late to get started. Indeed, as the next figure shows, younger isn’t necessarily faster.</p>
 <p><img src="img/desc/finish_times_by_age_group.png" /></p>
 <p>With respect to age groups, we can see that the the 40-44 group marks the sweet spot between age and performance. This could be due to having more race experience or just the compounding effect of years of training. Many elite marathoners enjoy success well into their 30s - Eliud Kipchoge set the men’s world record at 34.</p>
+<p>Of course it’s worth noting again that because of the binning of the 18-39 age group, it would be expected that 30-34 or 35-39 would be the fastest. However, an <a href="https://www.theguardian.com/lifeandstyle/the-running-blog/2017/apr/11/strava-releases-london-marathon-training-data-heres-what-it-shows">internal analysis of Strava data</a> on the 2016 London Marathon revealed that 25-34 age group was much slower relative to the 35-44 age group, despite the fact that most elites are part of the former.</p>
 </div>
 <div id="experience-and-finish-times" class="section level1">
 <h1><span class="header-section-number">3</span> Experience and Finish Times</h1>
@@ -816,19 +818,24 @@ $(document).ready(function () {
 <ul>
 <li>Heat significantly impacts performance</li>
 <li>Women are more consistent than men with respect to pacing</li>
-<li>Runners in their 40s are on average the most consistent and the fastest age demographic (the caveat being that the age group for younger runners is very wide)</li>
-<li>If you want to define even splits, use the coefficient of variation of a runner’s splits rather than the split difference percentage</li>
+<li>Runners in the 40-44 age group are on average the most consistent and the fastest age demographic</li>
+<li>To define even splits, use the coefficient of variation of a runner’s splits rather than the split difference percentage (assuming you have the split data)</li>
 <li><strong>Even splits yield the fastest performances</strong> across all gender, finish, and age categories except for the 4th quartile of runners</li>
 <li>Despite the above, <strong>nearly everyone positive splits</strong> (including the majority of elite runners and 1/3 of the 2014-2019 winners)</li>
 </ul>
 <p>By stratifying across various categories (age, gender, consistency, finish time quartile, top runners), I’ve provided some substantial evidence towards the relationship between pacing and performance, which have also been observed through analyses of other major marathons. This is just another data point supporting the collective, sage advice of ‘don’t run positive splits.’</p>
 <p>One final note: London 2020 features a highly anticipated matchup between two running greats while also giving us a preview for the 2020 Olympic Marathon race in Japan. Eliud Kipchoge, the current men’s marathon world record holder at 2:01:39 and the only person to run below 2:00 for the marathon distance, will face off against arguably the greatest distance runner of all time, Kenenisa Bekele, who holds both the 5K and 10K world records and ran the second fastest marathon of all time at 2:01:41 (missing Kipchoge’s record by a mere 2 seconds). London 2020 will take place on Sunday, April 26th.</p>
 </div>
+<div id="statistical-tests-used" class="section level1">
+<h1><span class="header-section-number">9</span> Statistical Tests Used</h1>
+<p>To compare finish time differences across split strategy, gender, &amp; finish quartile, a three-way ANOVA was run followed by post-hoc tests (Benjamini-Hochberg with a false discovery rate at .05). The FDR is the expected proportion of Type I errors, in other words the expected number of false rejections of the null hypothesis.</p>
+</div>
 <div id="references" class="section level1">
-<h1><span class="header-section-number">9</span> References</h1>
+<h1><span class="header-section-number">10</span> References</h1>
 <ul>
 <li><a href="https://www.virginmoneylondonmarathon.com/en-gb/event-info/race-results/" class="uri">https://www.virginmoneylondonmarathon.com/en-gb/event-info/race-results/</a></li>
-<li><a href="http://www.runblogrun.com/2017/04/17/Jared%20Ward%20Thesis.pdf">http://www.runblogrun.com/2017/04/17/Jared%20Ward%20Thesis.pdf</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4738997/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4738997/</a></li>
+<li><a href="http://www.runblogrun.com/2017/04/17/Jared%20Ward%20Thesis.pdf" class="uri">http://www.runblogrun.com/2017/04/17/Jared%20Ward%20Thesis.pdf</a></li>
 <li><a href="https://fellrnr.com/wiki/Negative_Splits" class="uri">https://fellrnr.com/wiki/Negative_Splits</a></li>
 </ul>
 </div>

@@ -38,9 +38,9 @@ Here's the distribution of finish times.
 
 ![](img/demog/finish_distr.png)
 
-You can see that there are sharp points of maxima around 3:00 and 4:00 that have a large cluster of runners; this is a result of runners having common goal times.
+You can see that there are sharp points of maxima around 3:00 and 4:00 with a large cluster of runners; this is the well known phenomenon of runners clustering around common goal times (typically multiples of 30 min).
 
-Just for reference, here are the finish times of the runners in the top-X percentile for London 2019.
+Here are the finish times of the runners in the top-X percentile for London 2019.
 
 |Top Percentile|Male|Female|
 |---|---|---|
@@ -66,6 +66,8 @@ If you're new to the world of marathon running in general, you might think that 
 ![](img/desc/finish_times_by_age_group.png)
 
   With respect to age groups, we can see that the the 40-44 group marks the sweet spot between age and performance. This could be due to having more race experience or just the compounding effect of years of training. Many elite marathoners enjoy success well into their 30s - Eliud Kipchoge set the men's world record at 34.
+  
+Of course it's worth noting again that because of the binning of the 18-39 age group, it would be expected that 30-34 or 35-39 would be the fastest. However, an [internal analysis of Strava data](https://www.theguardian.com/lifeandstyle/the-running-blog/2017/apr/11/strava-releases-london-marathon-training-data-heres-what-it-shows) on the 2016 London Marathon revealed that 25-34 age group was much slower relative to the 35-44 age group, despite the fact that most elites are part of the former. 
   
 
 
@@ -264,8 +266,8 @@ TL;DR:
 
 * Heat significantly impacts performance 
 * Women are more consistent than men with respect to pacing
-* Runners in their 40s are on average the most consistent and the fastest age demographic (the caveat being that the age group for younger runners is very wide)
-* If you want to define even splits, use the coefficient of variation of a runner's splits rather than the split difference percentage
+* Runners in the 40-44 age group are on average the most consistent and the fastest age demographic 
+* To define even splits, use the coefficient of variation of a runner's splits rather than the split difference percentage (assuming you have the split data)
 * **Even splits yield the fastest performances** across all gender, finish, and age categories except for the 4th quartile of runners
 * Despite the above, **nearly everyone positive splits** (including the majority of elite runners and 1/3 of the 2014-2019 winners)
 
@@ -274,9 +276,14 @@ By stratifying across various categories (age, gender, consistency, finish time 
 
 One final note: London 2020 features a highly anticipated matchup between two running greats while also giving us a preview for the 2020 Olympic Marathon race in Japan. Eliud Kipchoge, the current men's marathon world record holder at 2:01:39 and the only person to run below 2:00 for the marathon distance, will face off against arguably the greatest distance runner of all time, Kenenisa Bekele, who holds both the 5K and 10K world records and ran the second fastest marathon of all time at 2:01:41 (missing Kipchoge's record by a mere 2 seconds). London 2020 will take place on Sunday, April 26th. 
 
+# Statistical Tests Used
+
+To compare finish time differences across split strategy, gender, & finish quartile, a three-way ANOVA was run followed by post-hoc tests (Benjamini-Hochberg with a false discovery rate at .05). The FDR is the expected proportion of Type I errors, in other words the expected number of false rejections of the null hypothesis. 
+
 # References
 
 * https://www.virginmoneylondonmarathon.com/en-gb/event-info/race-results/
+* https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4738997/
 * http://www.runblogrun.com/2017/04/17/Jared%20Ward%20Thesis.pdf
 * https://fellrnr.com/wiki/Negative_Splits
 
