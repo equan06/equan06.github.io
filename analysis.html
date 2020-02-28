@@ -814,7 +814,6 @@ $(document).ready(function () {
 </div>
 <div id="conclusions" class="section level1">
 <h1><span class="header-section-number">8</span> Conclusions</h1>
-<p>TL;DR:</p>
 <ul>
 <li>Heat significantly impacts performance</li>
 <li>Women are more consistent than men with respect to pacing</li>
@@ -823,12 +822,13 @@ $(document).ready(function () {
 <li><strong>Even splits yield the fastest performances</strong> across all gender, finish, and age categories except for the 4th quartile of runners</li>
 <li>Despite the above, <strong>nearly everyone positive splits</strong> (including the majority of elite runners and 1/3 of the 2014-2019 winners)</li>
 </ul>
-<p>By stratifying across various categories (age, gender, consistency, finish time quartile, top runners), I’ve provided some substantial evidence towards the relationship between pacing and performance, which have also been observed through analyses of other major marathons. This is just another data point supporting the collective, sage advice of ‘don’t run positive splits.’</p>
+<p>By stratifying across various categories (age, gender, consistency, finish time quartile, top runners), I’ve provided some substantial evidence towards the relationship between pacing and performance, which have also been observed through analyses of other major marathons. While it is difficult to infer causal relationships from this data (namely a lack of pre-race covariates), this is a good starting point for any serious analysis. Overall, the sage advice of ‘don’t run positive splits’ holds up.</p>
 <p>One final note: London 2020 features a highly anticipated matchup between two running greats while also giving us a preview for the 2020 Olympic Marathon race in Japan. Eliud Kipchoge, the current men’s marathon world record holder at 2:01:39 and the only person to run below 2:00 for the marathon distance, will face off against arguably the greatest distance runner of all time, Kenenisa Bekele, who holds both the 5K and 10K world records and ran the second fastest marathon of all time at 2:01:41 (missing Kipchoge’s record by a mere 2 seconds). London 2020 will take place on Sunday, April 26th.</p>
 </div>
 <div id="statistical-tests-used" class="section level1">
 <h1><span class="header-section-number">9</span> Statistical Tests Used</h1>
 <p>To compare finish time differences across split strategy, gender, &amp; finish quartile, a three-way ANOVA was run followed by post-hoc tests (Benjamini-Hochberg with a false discovery rate at .05). The FDR is the expected proportion of Type I errors, in other words the expected number of false rejections of the null hypothesis.</p>
+<p>A regression model was also fitted on the above covariates, yielding</p>
 </div>
 <div id="references" class="section level1">
 <h1><span class="header-section-number">10</span> References</h1>
