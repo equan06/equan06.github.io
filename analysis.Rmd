@@ -17,7 +17,7 @@ If you'd like to skip straight to the analysis, skip to Section 4. If you'd like
 
 # Introduction
 
-  The [London Marathon](https://en.wikipedia.org/wiki/London_Marathon) is a race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 [world marathon majors](https://en.wikipedia.org/wiki/World_Marathon_Majors). This analysis uses the data of 234,613 London finishers from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon.
+  The [London Marathon](https://en.wikipedia.org/wiki/London_Marathon) is a race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 [world marathon majors](https://en.wikipedia.org/wiki/World_Marathon_Majors). This analysis uses the data of 234,613 London finishers from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon. One thing to note: like many competitive marathons, London has an entry process similar to Boston. There are limited "Good for Age" qualifiers, which means that you can qualify to run if you've run a fast time at another race - roughly 1/3 of runners are selected this way. There are also Club and International reserved spots for certain groups. For the rest of the runners there are Ballot spots - which is essentially a lottery. So like the Boston Marathon, the distribution of runners at London is skewed faster than your average marathon.
 
 As someone who's never run a marathon before, I was particularly interested in the best approach to pacing a marathon (negative/positive/even). Negative splits mean running faster in the second half, positive splits mean the opposite, and even splits mean running a consistent pace throughout.
 
@@ -80,9 +80,10 @@ Of course it's worth noting again that because of the binning of the 18-39 age g
 
   The effect is clear: repeat runners are consistently faster on average than their non-repeat counterparts across all age groups except for the 70+ category. It's fairly surprising to see how consistent the differential is: respectively, repeat men and women were 17 and 21 min faster on average.
 
-  More surprisingly, the repeat female runners between 60-64 outperformed their non-repeat male counterparts. In fact, they're almost as fast their repeat male counterparts! This can be attributed to selection bias - since the number of repeat female marathoners aged 60-64 is a relatively small group, you're likely to be a pretty comeptitive runner: serious enough to contend with the 60-64 male repeat runners.
-
-
+  More surprisingly, the repeat female runners between 60-64 outperformed their non-repeat male counterparts. In fact, they're almost as fast their repeat male counterparts! This can be attributed to selection bias - the number of repeat female marathoners aged 60-64 is small and more serious on average. Here's the distributions of similar groups - we can see that compared to the surrounding groups, the 60-64 group has much fewer finishers past the 5 hour mark.
+  
+  
+![](img/desc/female_repeat_distr.png)
 
 # Split Consistency and Coefficient of Variation
 

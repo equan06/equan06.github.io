@@ -316,8 +316,8 @@ $(document).ready(function () {
 <li><a href="#race-strategy-negative-vs-positive-vs-even-splits"><span class="toc-section-number">5</span> Race Strategy: Negative vs Positive vs Even Splits?</a></li>
 <li><a href="#even-splits-another-way-coefficient-of-variation"><span class="toc-section-number">6</span> Even Splits Another Way: Coefficient of Variation</a></li>
 <li><a href="#elite-split-profiles"><span class="toc-section-number">7</span> Elite Split Profiles</a></li>
-<li><a href="#conclusions"><span class="toc-section-number">8</span> Conclusions</a></li>
-<li><a href="#statistical-testing"><span class="toc-section-number">9</span> Statistical Testing</a></li>
+<li><a href="#statistical-testing"><span class="toc-section-number">8</span> Statistical Testing</a></li>
+<li><a href="#conclusions"><span class="toc-section-number">9</span> Conclusions</a></li>
 <li><a href="#references"><span class="toc-section-number">10</span> References</a></li>
 </ul>
 </div>
@@ -325,7 +325,7 @@ $(document).ready(function () {
 <p>If you’d like to skip straight to the analysis, skip to Section 4. If you’d like to view the code, see the <a href="https://github.com/equan06/london_marathon">github repo</a>. See london.py for scraping code and the Jupyter Notebooks for plot generation.</p>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>The <a href="https://en.wikipedia.org/wiki/London_Marathon">London Marathon</a> is a race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 <a href="https://en.wikipedia.org/wiki/World_Marathon_Majors">world marathon majors</a>. This analysis uses the data of 234,613 London finishers from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/London_Marathon">London Marathon</a> is a race (26.2mi/42.2km) held annually in April since 1981, and is one of the 6 <a href="https://en.wikipedia.org/wiki/World_Marathon_Majors">world marathon majors</a>. This analysis uses the data of 234,613 London finishers from 2014-2019, and covers both finisher demographics and best strategy to pace a marathon. One thing to note: like many competitive marathons, London has an entry process similar to Boston. There are limited “Good for Age” qualifiers, which means that you can qualify to run if you’ve run a fast time at another race - roughly 1/3 of runners are selected this way. There are also Club and International reserved spots for certain groups. For the rest of the runners there are Ballot spots - which is essentially a lottery. So like the Boston Marathon, the distribution of runners at London is skewed faster than your average marathon.</p>
 <p>As someone who’s never run a marathon before, I was particularly interested in the best approach to pacing a marathon (negative/positive/even). Negative splits mean running faster in the second half, positive splits mean the opposite, and even splits mean running a consistent pace throughout.</p>
 <p>Several other people with quantitative backgrounds have looked at this before; the general consensus is even/negative splits are preferable over positive. Jared Ward (6th place at the 2016 Rio Olympic marathon and BYU stats professor) wrote his master’s thesis on the topic, taking a Bayesian approach to modeling split pacing strategies using quarter splits (time through the 4 quarters of the race). I also came across Jonathan Savage’s <a href="https://fellrnr.com/wiki/Negative_Splits">analysis</a> which looked at a large dataset from NYC and Chicago, but he only analyzed the half splits (first/second). So I wanted to find a race that had comprehensive split data across the entire race (splits every 5K). London also happens to be relatively flat, which removes the effect of elevation on pace.</p>
 </div>
@@ -403,7 +403,8 @@ $(document).ready(function () {
 <p>What about investigating the effect of race experience on finish times? Since we have data spanning multiple years, this allows us to check for repeat runners: runners in 2019 who’ve raced at least once between 2014-2018. Runners were matched if they had the same name, country, and belonged to the same age category or the age category right below to account for aging; for example, (Jane Doe, USA, 40-44) would match to (Jane Doe, USA, 40-44) or (Jane Doe, USA, 18-39). Roughly 21% of the 41,000+ 2019 runners were flagged as repeat runners.</p>
 <p><img src="img/desc/finish_by_age_repeat.png" /></p>
 <p>The effect is clear: repeat runners are consistently faster on average than their non-repeat counterparts across all age groups except for the 70+ category. It’s fairly surprising to see how consistent the differential is: respectively, repeat men and women were 17 and 21 min faster on average.</p>
-<p>More surprisingly, the repeat female runners between 60-64 outperformed their non-repeat male counterparts. In fact, they’re almost as fast their repeat male counterparts! This can be attributed to selection bias - since the number of repeat female marathoners aged 60-64 is a relatively small group, you’re likely to be a pretty comeptitive runner: serious enough to contend with the 60-64 male repeat runners.</p>
+<p>More surprisingly, the repeat female runners between 60-64 outperformed their non-repeat male counterparts. In fact, they’re almost as fast their repeat male counterparts! This can be attributed to selection bias - the number of repeat female marathoners aged 60-64 is small and more serious on average. Here’s the distributions of similar groups - we can see that compared to the surrounding groups, the 60-64 group has much fewer finishers past the 5 hour mark.</p>
+<p><img src="img/desc/female_repeat_distr.png" /></p>
 </div>
 <div id="split-consistency-and-coefficient-of-variation" class="section level1">
 <h1><span class="header-section-number">4</span> Split Consistency and Coefficient of Variation</h1>
@@ -812,23 +813,23 @@ $(document).ready(function () {
 <p>Although there are a large number of even split runners, even the fastest runners across gender and age categories still overwhelmingly tend to run positive splits, and almost nobody runs a negative split race.</p>
 <p>One final remark on even splits: repeat runners in 2019 were 4% more likely to run even splits than nonrepeat runners.</p>
 </div>
+<div id="statistical-testing" class="section level1">
+<h1><span class="header-section-number">8</span> Statistical Testing</h1>
+<p>To compare finish time differences across split strategy, gender, &amp; finish quartile, a three-way ANOVA was run followed by post-hoc tests (Benjamini-Hochberg with a false discovery rate at .05). The FDR is the expected proportion of Type I errors, in other words the expected number of false rejections of the null hypothesis.</p>
+<p>To analyze the 2019 data, a weighted least-squares model was fitted (age, male, Boston Qualifier status, pace CoV, repeat runner status and interactions between age, male, boston qualifier status) to look at the relationship between finish time and pace CoV. As expected, this yielded a positive association between CoV and finish time; on average, a 1% increase in pace CoV resulted in a 5:47 increase in finish time. While model residuals did exhibit heteroscedastic behavior (likely due to omitted variable bias, especially with respect to slower finishers), this process still yields unbiased coefficient estimates, and the large sample size combined with using heteroscedasticity consistent standard errors helps to support the reliability of the estimates.</p>
+</div>
 <div id="conclusions" class="section level1">
-<h1><span class="header-section-number">8</span> Conclusions</h1>
+<h1><span class="header-section-number">9</span> Conclusions</h1>
 <ul>
-<li>Heat significantly impacts performance</li>
 <li>Women are more consistent than men with respect to pacing</li>
 <li>Runners in the 40-44 age group are on average the most consistent and the fastest age demographic</li>
-<li>To define even splits, use the coefficient of variation of a runner’s splits rather than the split difference percentage (assuming you have the split data)</li>
+<li>To define even splits, use the coefficient of variation (CoV) of a runner’s splits rather than the split difference percentage (assuming you have the split data)</li>
+<li>Pace CoV is positively associated with finish time</li>
 <li><strong>Even splits yield the fastest performances</strong> across all gender, finish, and age categories except for the 4th quartile of runners</li>
 <li>Despite the above, <strong>nearly everyone positive splits</strong> (including the majority of elite runners and 1/3 of the 2014-2019 winners)</li>
 </ul>
-<p>By stratifying across various categories (age, gender, consistency, finish time quartile, top runners), I’ve provided some substantial evidence towards the relationship between pacing and performance, which have also been observed through analyses of other major marathons. While it is difficult to infer causal relationships from this data, this is a good starting point for any serious analysis. Overall, the sage advice of ‘don’t run positive splits’ still holds.</p>
+<p>By stratifying across various categories (age, gender, consistency, finish time quartile, Boston Qualifier status, top runners), I’ve provided some evidence towards the relationship between pacing and performance, which have also been observed through analyses of other major marathons. While it is difficult to infer causal relationships from this data, this is a good starting point for any serious analysis. Future analyses could derive insight from having finish data at shorter distances and training covariates such as years of experience, mileage per week, estimated VO2 max, etc. Overall, the data seems consistent with the sage and time-tested advice of ‘run a conservative race.’</p>
 <p>One final note: London 2020 features a highly anticipated matchup between two running greats while also giving us a preview for the 2020 Olympic Marathon race in Japan. Eliud Kipchoge, the current men’s marathon world record holder at 2:01:39 and the only person to run below 2:00 for the marathon distance, will face off against arguably the greatest distance runner of all time, Kenenisa Bekele, who holds both the 5K and 10K world records and ran the second fastest marathon of all time at 2:01:41 (missing Kipchoge’s record by a mere 2 seconds). London 2020 will take place on Sunday, April 26th.</p>
-</div>
-<div id="statistical-testing" class="section level1">
-<h1><span class="header-section-number">9</span> Statistical Testing</h1>
-<p>To compare finish time differences across split strategy, gender, &amp; finish quartile, a three-way ANOVA was run followed by post-hoc tests (Benjamini-Hochberg with a false discovery rate at .05). The FDR is the expected proportion of Type I errors, in other words the expected number of false rejections of the null hypothesis.</p>
-<p>To analyze the 2019 data, a weighted least-squares model was fitted (age, male, boston qualifier status, pace CoV, repeat status and interactions between age, male, boston qualifier status) to look at the relationship between finish time and pace CoV. As expected, this yielded a positive association between CoV and finish time; on average, a 1% increase in pace CoV resulted in a 5:47 increase in finish time. While model residuals did exhibit heteroscedastic behavior (likely due to omitted variable bias, especially with respect to slower finishers), this process still yields unbiased coefficient estimates, and the large sample size combined with using heteroscedasticity consistent standard errors helps to remedy the reliability of the estimates.</p>
 </div>
 <div id="references" class="section level1">
 <h1><span class="header-section-number">10</span> References</h1>
