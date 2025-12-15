@@ -1,5 +1,5 @@
 ---
-date: 12-14-2025
+date: 2025-12-14
 category:
   - Meta
 ---
