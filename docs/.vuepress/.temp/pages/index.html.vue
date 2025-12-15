@@ -2,6 +2,7 @@
 <p align="center">
     <img src="@source/assets/home_small.jpg" alt="home" width="600" height="450" title="Me trying not to die on Mt. Ritter">
 </p>
+<!-- [default-theme-home]: https://vuejs.press/reference/default-theme/frontmatter.html#home-page -->
 </div></template>
 
 

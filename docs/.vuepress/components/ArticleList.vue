@@ -11,7 +11,7 @@ defineProps({
 });
 
 const dateConverter = (date) => {
-  return DateTime.fromFormat(date, "yyyy-MM-dd").toFormat("MMM dd, yyyy");
+  return DateTime.fromISO(date).toFormat("MMM dd, yyyy");
 };
 </script>
 

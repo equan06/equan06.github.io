@@ -23,6 +23,9 @@ export default defineUserConfig({
         link: "/category/",
       },
     ],
+    sidebar: false,
+    lastUpdated: false,
+    contributors: false,
   }),
 
   plugins: [
