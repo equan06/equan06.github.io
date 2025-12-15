@@ -1,0 +1,43 @@
+{
+  "hash": "bb76962a",
+  "configHash": "8ac5c22b",
+  "lockfileHash": "781ddc84",
+  "browserHash": "68d81035",
+  "optimized": {
+    "@vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
+      "file": "@vue_devtools-api.js",
+      "fileHash": "4be93c2f",
+      "needsInterop": false
+    },
+    "@vuepress/shared": {
+      "src": "../../../../node_modules/@vuepress/shared/dist/index.js",
+      "file": "@vuepress_shared.js",
+      "fileHash": "b9382495",
+      "needsInterop": false
+    },
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "d8ed9469",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../../../node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "file": "vue-router.js",
+      "fileHash": "25f95ab5",
+      "needsInterop": false
+    },
+    "luxon": {
+      "src": "../../../../node_modules/luxon/build/es6/luxon.mjs",
+      "file": "luxon.js",
+      "fileHash": "0ed6a1ca",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-EKBJ2FPM": {
+      "file": "chunk-EKBJ2FPM.js"
+    }
+  }
+}
